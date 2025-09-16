@@ -1,10 +1,16 @@
 -- 1.	Display the ids and names for all customers.
+SELECT cust_id, cust_name FROM customer;
 
 -- 2.	Display all the data in the sales representative table.
+SELECT * From rep;
 
 -- 3.	Display the names of all customers whose credit limits are $10,000 or more.
+SELECT cust_name FROM customer
+WHERE cust_limit >= 10000;
 
 -- 4.	Display the invoice number for all orders placed by the customer whose id is 1619 on September 13, 2007.  Please note: A date in a condition should be in the form ’13-SEP-07’.
+SELECT invoice_num FROM invoice
+WHERE cust_id = '1619' AND invoice_date = '13-SEP-07';
 
 -- 5.	Display the id and the name for all customers whose sales representative has an id of either 237 or 268.
 
