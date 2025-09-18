@@ -1,29 +1,34 @@
 -- 1.	Display the ids and names for all customers.
 SELECT cust_id, cust_name FROM customer;
-
 -- 2.	Display all the data in the sales representative table.
 SELECT * From rep;
-
 -- 3.	Display the names of all customers whose credit limits are $10,000 or more.
 SELECT cust_name FROM customer
 WHERE cust_limit >= 10000;
-
 -- 4.	Display the invoice number for all orders placed by the customer whose id is 1619 on September 13, 2007.  Please note: A date in a condition should be in the form ’13-SEP-07’.
 SELECT invoice_num FROM invoice
 WHERE cust_id = '1619' AND invoice_date = '13-SEP-07';
-
 -- 5.	Display the id and the name for all customers whose sales representative has an id of either 237 or 268.
-
+SELECT cust_id, cust_name FROM customer
+WHERE rep_id = '237' OR rep_id = '268';
 -- 6.	Display the id and description for all products whose type is not AP.
-
+SELECT prod_id, prod_desc FROM product
+WHERE prod_type != 'AP';
 -- 7.	Display the id, the description, and the number of items for each product that has between 12 and 30 items. Perform this query two different ways.
+SELECT prod_id, prod_desc, prod_quantity FROM product 
+WHERE prod_quantity BETWEEN 12 AND 30; 
 
--- 8.	Display the id, the description, and the total value (product quantity * product price) of each product whose product type is HW.  Assign the column name TOTAL_VALUE to this calculation.
-
+SELECT prod_id, prod_desc, prod_quantity FROM product
+WHERE prod_quantity >= 12 AND prod_quantity <= 30;
+-- 8.	Display the id, the description, and the total value (product quantity * product price) of each product whose product type is HW.  Assign the column name TOTAL_VALUE to this calculation.SELECT prod_desc, prod_id, prod_quantity * prod_price FROM product
+SELECT prod_id, prod_desc, prod_quantity * prod_price AS TOTAL_VALUE FROM product
+WHERE prod_type = 'HW';
 -- 9.	Display the id, the description, and the total value (product quantity * product price) of each product whose total value is greater than or equal to $4,000.  Assign the column name TOTAL_VALUE to the calculation.
-
+SELECT prod_id, prod_desc, prod_quantity * prod_price AS TOTAL_VALUE FROM product
+WHERE (prod_quantity * prod_price) >= '4000';
 -- 10.	Display the id and the description for each product whose type is either SG or AP using the IN operator.
-
+SELECT prod_id, prod_desc FROM product
+WHERE prod_type IN  ('SG' , 'AP');
 -- 11.	Determine the id and the name of each customer whose name starts with the letter “S”.
 
 -- 12.	Display all the data in the products table.  Order the display by the product description.
