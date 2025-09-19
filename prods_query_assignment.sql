@@ -42,6 +42,8 @@ ORDER BY prod_type, prod_id;
 SELECT COUNT (*) FROM customer
 WHERE cust_balance < cust_limit;
 -- 15.	Display the total of the balances of all customers who are represented by sales representative 237 and whose balances are less than their credit limits.
+SELECT SUM(cust_balance) AS TOTAL_BALANCE FROM customer 
+WHERE rep_id = '237' AND cust_balance <cust_limit;
 
 -- 16.	Display the id, the description, and the total value of each product whose number of items is greater than the average number of items for all products. You may want to use a subquery.
 SELECT prod_id, prod_desc, (prod_quantity * prod_price) AS TOLAL_VLUE FROM product
